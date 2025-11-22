@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Calorie Predictor</title>
+  <link rel="stylesheet" href="index.css">
+  <!-- Material Icons CDN -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="navbar-brand">
+      <span class="material-icons" aria-hidden="true">local_dining</span>
+      <span class="app-title" data-i18n="navTitle">Calorie Predictor</span>
+    </div>
+    <div class="navbar-controls">
+      <select id="langSelect" aria-label="Language Select">
+        <option value="en" data-i18n="languageEnglish">English</option>
+        <option value="kn" data-i18n="languageKannada">Kannada</option>
+        <option value="hi" data-i18n="languageHindi">Hindi</option>
+      </select>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero-panel">
+      <div class="hero-text">
+        <p class="eyebrow" data-i18n="heroEyebrow">AI Nutrition • Real-time guidance</p>
+        <h1 data-i18n="heroTitle">Snap your meal, understand your plate</h1>
+        <p class="hero-subtitle" data-i18n="heroSubtitle">Built-in diet, report and activity insights help you stay consistent with your wellness goals.</p>
+        </div>
+      <div class="hero-metrics">
+        <div class="metric-card">
+          <span class="metric-value">1200+</span>
+          <span class="metric-label" data-i18n="metricPlates">Plates analyzed</span>
+        </div>
+        <div class="metric-card accent">
+          <span class="metric-value">3 mins</span>
+          <span class="metric-label" data-i18n="metricPlanning">Daily planning</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value">92%</span>
+          <span class="metric-label" data-i18n="metricFocus">User focus boost</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="uploadSection">
+      <div class="upload-note">
+        <span class="material-icons" aria-hidden="true">cloud_upload</span>
+        <p data-i18n="uploadNote">Upload your plate photo or use the sample image below.</p>
+      </div>
+      <label for="foodImage" class="upload-label">
+        <span class="material-icons">add_photo_alternate</span>
+        <span class="label-text" data-i18n="uploadButton">Choose Plate Photo</span>
+      </label>
+      <input type="file" id="foodImage" accept="image/*" hidden>
+      <div id="uploadPreview"></div>
+      <button id="analyzeBtn" data-i18n="analyzeButton">Analyze Plate</button>
+    </section>
+    
+    <section id="predictionResult" class="hidden"></section>
+    
+    <!-- Section navigation boxes -->
+    <div class="nav-box-grid">
+      <div class="nav-box" data-link="profile" role="button" tabindex="0">
+        <span class="material-icons">person</span>
+        <span class="nav-label" data-i18n="navProfile">Profile Info</span>
+      </div>
+      <div class="nav-box" data-link="diet" role="button" tabindex="0">
+        <span class="material-icons">restaurant</span>
+        <span class="nav-label" data-i18n="navDiet">Diet Plan</span>
+      </div>
+      <div class="nav-box" data-link="report" role="button" tabindex="0">
+        <span class="material-icons">assessment</span>
+        <span class="nav-label" data-i18n="navReport">Report</span>
+      </div>
+      <div class="nav-box" data-link="history" role="button" tabindex="0">
+        <span class="material-icons">restaurant_menu</span>
+        <span class="nav-label" data-i18n="navHistory">Meals History</span>
+      </div>
+      <div class="nav-box" data-link="activity" role="button" tabindex="0">
+        <span class="material-icons">directions_run</span>
+        <span class="nav-label" data-i18n="navActivity">Physical Activity</span>
+      </div>
+    </div>
+
+    <section class="insight-panel">
+      <article data-insight="progress" role="button" tabindex="0">
+        <h4><span class="material-icons">timeline</span> <span data-i18n="insightProgressTitle">Progress Overview</span></h4>
+        <p data-i18n="insightProgressBody">See weekly macro trends with one tap.</p>
+      </article>
+      <article data-insight="habits" role="button" tabindex="0">
+        <h4><span class="material-icons">emoji_events</span> <span data-i18n="insightHabitsTitle">Habit Goals</span></h4>
+        <p data-i18n="insightHabitsBody">Micro-challenges nudge you to stay hydrated, move more, and rest better.</p>
+      </article>
+      <article data-insight="smart" role="button" tabindex="0">
+        <h4><span class="material-icons">bolt</span> <span data-i18n="insightSmartTitle">Smart Insights</span></h4>
+        <p data-i18n="insightSmartBody">Our AI highlights the biggest wins and opportunities on every report.</p>
+      </article>
+    </section>
+
+    <section id="insightDetails" class="insight-details hidden" aria-live="polite">
+      <div class="insight-details__header">
+        <h3 id="insightTitle" data-i18n="insightTitleDefault">Insight</h3>
+        <button id="closeInsightBtn" aria-label="Close insight">&times;</button>
+      </div>
+      <div id="insightBody" class="insight-body"></div>
+    </section>
+  </main>
+  
+  <!-- Dynamic SPA views -->
+  <section id="profileView" class="section-view hidden"></section>
+  <section id="dietView" class="section-view hidden"></section>
+  <section id="reportView" class="section-view hidden"></section>
+  <section id="historyView" class="section-view hidden"></section>
+  <section id="activityView" class="section-view hidden"></section>
+
+  <!-- Footer -->
+  <footer>
+    <p data-i18n="footerDisclaimer">Disclaimer: The predictions are estimates—consult a professional for medical advice.</p>
+    <p data-i18n="footerContact">Contact: info@caloriepredictor.com • About Us: Building AI for better health!</p>
+  </footer>
+  <script src="index.js"></script>
+</body>
+</html>
